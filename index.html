@@ -12,7 +12,8 @@
             <p class="eyebrow">QA Portfolio Project</p>
             <h1>QA Bug Report Smart Builder</h1>
             <p class="subtitle">
-                Мини-приложение для QA: заполни форму, получи аккуратный баг-репорт в Markdown и JSON.
+                Мини-приложение для QA: заполни форму, получи аккуратный баг-репорт в Markdown и JSON,
+                сохрани его в историю браузера и вернись к нему позже.
             </p>
         </div>
     </header>
@@ -104,7 +105,27 @@
 
             <div class="actions">
                 <button id="copyBtn" type="button">Скопировать</button>
+                <button id="saveBtn" class="success" type="button">Сохранить в историю</button>
                 <button id="downloadBtn" class="secondary" type="button">Скачать .md</button>
+            </div>
+        </section>
+
+        <section class="card history-card" aria-label="Saved bug reports history">
+            <div class="history-header">
+                <div>
+                    <h2>История баг-репортов</h2>
+                    <p>Отчёты сохраняются в LocalStorage твоего браузера. Сервер и база данных не нужны.</p>
+                </div>
+                <span id="historyCount" class="badge">0 saved</span>
+            </div>
+
+            <div class="actions">
+                <button id="exportHistoryBtn" class="secondary" type="button">Экспорт JSON</button>
+                <button id="clearHistoryBtn" class="danger" type="button">Очистить историю</button>
+            </div>
+
+            <div id="historyList" class="history-list">
+                <p class="empty-state">История пока пустая. Сгенерируй отчёт и нажми «Сохранить в историю».</p>
             </div>
         </section>
     </main>
