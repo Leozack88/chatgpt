@@ -1,11 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QA Bug Report Smart Builder</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello GPT and Codex pass key 2123</h1>
+    <header class="hero">
+        <div>
+            <p class="eyebrow">QA Portfolio Project</p>
+            <h1>QA Bug Report Smart Builder</h1>
+            <p class="subtitle">
+                Мини-приложение для QA: заполни форму, получи аккуратный баг-репорт в Markdown и JSON.
+            </p>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="card form-card" aria-label="Bug report form">
+            <h2>Данные бага</h2>
+
+            <label>
+                Заголовок бага
+                <input id="title" type="text" placeholder="Например: Login button does not work after valid credentials">
+            </label>
+
+            <div class="grid-2">
+                <label>
+                    Проект / модуль
+                    <input id="module" type="text" placeholder="Auth, Profile, Payments...">
+                </label>
+                <label>
+                    Окружение
+                    <input id="environment" type="text" placeholder="Windows 10, Chrome 126, Staging">
+                </label>
+            </div>
+
+            <div class="grid-2">
+                <label>
+                    Severity
+                    <select id="severity">
+                        <option value="auto">Auto detect</option>
+                        <option>Blocker</option>
+                        <option>Critical</option>
+                        <option>Major</option>
+                        <option>Minor</option>
+                        <option>Trivial</option>
+                    </select>
+                </label>
+                <label>
+                    Priority
+                    <select id="priority">
+                        <option value="auto">Auto detect</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </label>
+            </div>
+
+            <label>
+                Шаги воспроизведения
+                <textarea id="steps" rows="5" placeholder="1. Open login page&#10;2. Enter valid email/password&#10;3. Click Login"></textarea>
+            </label>
+
+            <label>
+                Фактический результат
+                <textarea id="actual" rows="3" placeholder="Что произошло на самом деле?"></textarea>
+            </label>
+
+            <label>
+                Ожидаемый результат
+                <textarea id="expected" rows="3" placeholder="Что должно было произойти?"></textarea>
+            </label>
+
+            <label>
+                Дополнительная информация
+                <textarea id="notes" rows="3" placeholder="Логи, скриншоты, частота воспроизведения, ссылки..."></textarea>
+            </label>
+
+            <div class="actions">
+                <button id="generateBtn" type="button">Сгенерировать отчёт</button>
+                <button id="clearBtn" class="secondary" type="button">Очистить</button>
+            </div>
+        </section>
+
+        <section class="card result-card" aria-label="Generated bug report">
+            <div class="result-header">
+                <div>
+                    <h2>Готовый баг-репорт</h2>
+                    <p id="qualityHint">Заполни форму и нажми кнопку генерации.</p>
+                </div>
+                <span id="scoreBadge" class="badge">QA score: 0%</span>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-format="markdown" type="button">Markdown</button>
+                <button class="tab" data-format="json" type="button">JSON</button>
+            </div>
+
+            <pre id="output" class="output">Здесь появится отчёт.</pre>
+
+            <div class="actions">
+                <button id="copyBtn" type="button">Скопировать</button>
+                <button id="downloadBtn" class="secondary" type="button">Скачать .md</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Made for QA learning, portfolio and GitHub practice.</p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
